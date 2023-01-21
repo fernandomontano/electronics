@@ -10,7 +10,7 @@
         <li><label  for="my-modal-4" class="btn" >+ Add new</label></li>
         @foreach ($categories as $category)
         <li>
-            <a>
+            <a id="{{ $category->id }}">
                 {{ $category->category }}
             </a>
         </li>
@@ -21,8 +21,7 @@
     <input type="checkbox" id="my-modal-4" class="modal-toggle" />
     <label for="my-modal-4" class="modal cursor-pointer">
     <label class="modal-box relative" for="">
-    <h4 class="text-xl font-bold text-center">Please, enter the name of the category you'd like to add.</h4>
-    <form action="{{ route('categories.create') }}" method="POST"
+        <form action="{{ route('categories.store') }}" method="POST"
         enctype="multipart/form-data"
         class="flex justify-center items-center my-3 flex-col">
         @csrf

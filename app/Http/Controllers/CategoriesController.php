@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\categories;
+use App\Models\Categories;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -26,7 +26,7 @@ class CategoriesController extends Controller
     {
         //
 
-        $category = new categories();
+        $category = new Categories();
 
         return('Hello World');
 
@@ -41,23 +41,25 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         //
-        request()->validate(categories::$rules);
+        request()->validate(Categories::$rules);
 
-        $category = categories::create($request->all());
+        $category = new Categories;
 
-        echo ($request);
+        $category->category = $request->input('category');
 
-        // return redirect()->route('electronics.index')
-        //     ->with('success', 'New Category Added!');
+        $category->save();
+
+        return redirect()->route('index')
+            ->with('success', 'New Category Added!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\categories  $categories
+     * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function show(categories $categories)
+    public function show(Categories $categories)
     {
         //
     }
@@ -65,10 +67,10 @@ class CategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\categories  $categories
+     * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function edit(categories $categories)
+    public function edit(Categories $categories)
     {
         //
     }
@@ -77,10 +79,10 @@ class CategoriesController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\categories  $categories
+     * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, categories $categories)
+    public function update(Request $request, Categories $categories)
     {
         //
     }
@@ -88,10 +90,10 @@ class CategoriesController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\categories  $categories
+     * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function destroy(categories $categories)
+    public function destroy(Categories $categories)
     {
         //
     }
