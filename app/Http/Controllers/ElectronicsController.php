@@ -108,8 +108,9 @@ class ElectronicsController extends Controller
      * @param  \App\Models\electronics  $electronics
      * @return \Illuminate\Http\Response
      */
-    public function destroy(electronics $electronics)
+    public function destroy($id)
     {
         //
+        
     }
 }
