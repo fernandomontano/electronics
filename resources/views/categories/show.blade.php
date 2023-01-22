@@ -23,7 +23,12 @@
                     <div class="flex justify-between items-center mt-2">
                         <div class="text-sm border border-dashed rounded p-1">Only <span
                                 class="font-bold text-primary">{{ $electronic->stock }} </span>in stock!</div>
-                        <div class="text-warning font-bold">${{ $electronic->price }}</div>
+                        @if ($electronic->has_offers)
+                            <div class="text-warning font-bold">${{ $electronic->price * 0.9 }} <span
+                                    class="line-through text-xs text-primary">${{ $electronic->price }}</span></div>
+                        @else
+                            <div class="text-warning font-bold">${{ $electronic->price }}</div>
+                        @endif
                     </div>
                 </div>
                 <form action="{{ route('categories.destroy', $electronic->id) }}" method="POST"

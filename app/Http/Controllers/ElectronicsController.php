@@ -75,9 +75,12 @@ class ElectronicsController extends Controller
      * @param  \App\Models\electronics  $electronics
      * @return \Illuminate\Http\Response
      */
-    public function show(electronics $electronics)
+    public function show($id)
     {
         //
+        $electronic = Electronics::find($id);
+
+        return view('electronics.show', compact('electronic'));
     }
 
     /**
@@ -89,8 +92,10 @@ class ElectronicsController extends Controller
     public function edit($id)
     {
         $electronic =  Electronics::find($id);
+        $categories = Categories::all();
+        $brands = Brands::all();
 
-        return view('electronics.edit', compact('electronic'));
+        return view('electronics.edit', compact('electronic'), compact('categories'))->with(compact('brands'));
     }
 
     /**
@@ -103,9 +108,18 @@ class ElectronicsController extends Controller
     public function update(Request $request, Electronics $electronics)
     {
         //
-        $electronics->update($request->all());
+        $electronics->name = $request->get('name');
+        $electronics->description = $request->get('description');
+        $electronics->price = $request->get('price');
+        $electronics->stock = $request->get('stock');
+        $electronics->has_offers = $request->get('offers');
+        $electronics->file_path = $request->file->hashName();
+        $electronics->category_id = $request->get('category');
+        $electronics->brand_id = $request->get('brand');
 
-        return redirect()->route('electronics.index')
+        $electronics->update();
+
+        return redirect()->route('index')
             ->with('success', 'Appliance updated successfully');
     }
 
