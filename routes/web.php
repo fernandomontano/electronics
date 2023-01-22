@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BrandsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\ElectronicsController;
 use Illuminate\Support\Facades\Route;
@@ -21,3 +22,4 @@ use Illuminate\Support\Facades\Route;
 
 Route::resource('/', ElectronicsController::class);
 Route::resource('categories', CategoriesController::class);
+Route::resource('brands', BrandsController::class);

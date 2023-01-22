@@ -28,8 +28,7 @@ class CategoriesController extends Controller
 
         $category = new Categories();
 
-        return('Hello World');
-
+        return ('Hello World');
     }
 
     /**
@@ -49,7 +48,7 @@ class CategoriesController extends Controller
 
         $category->save();
 
-        return redirect()->route('index')
+        return redirect()->route('create')
             ->with('success', 'New Category Added!');
     }
 

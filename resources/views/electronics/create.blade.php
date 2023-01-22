@@ -4,6 +4,64 @@
 
 @section('content')
 
+<div class="flex justify-center gap-10">
+    <div class="dropdown">
+        <label tabindex="0" class="btn m-1">new brand</label>
+        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 text-center">
+            <li><label  for="my-modal" class="btn" >+ Add new</label></li>
+            @foreach ($brands as $brand)
+            <li>
+                <a id="{{ $brand->brand }}">
+                    {{ $brand->brand }}
+                </a>
+            </li>
+            @endforeach
+        </ul>
+    </div>
+    <div>
+        <input type="checkbox" id="my-modal" class="modal-toggle" />
+        <label for="my-modal" class="modal cursor-pointer">
+        <label class="modal-box relative" for="">
+            <form action="{{ route('brands.store') }}" method="POST"
+            enctype="multipart/form-data"
+            class="flex justify-center items-center my-3 flex-col">
+            @csrf
+
+            @include('electronics.brands')
+        </form>
+      </label>
+    </label>
+    </div>
+
+    <div class="dropdown">
+        <label tabindex="0" class="btn m-1">new Category</label>
+        <ul tabindex="0" class="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52 text-center">
+            <li><label  for="my-modal-5" class="btn" >+ Add new</label></li>
+            @foreach ($categories as $category)
+            <li>
+                <a id="{{ $category->id }}">
+                    {{ $category->category }}
+                </a>
+            </li>
+            @endforeach
+        </ul>
+    </div>
+    <div>
+        <input type="checkbox" id="my-modal-5" class="modal-toggle" />
+        <label for="my-modal-5" class="modal cursor-pointer">
+        <label class="modal-box relative" for="">
+            <form action="{{ route('categories.store') }}" method="POST"
+            enctype="multipart/form-data"
+            class="flex justify-center items-center my-3 flex-col">
+            @csrf
+
+            @include('electronics.form')
+        </form>
+      </label>
+    </label>
+    </div>
+</div>
+
 <form action="{{ route('store') }}" method="post" enctype="multipart/form-data"
 class="flex flex-col justify-center items-center my-3">
 <!-- Add CSRF Token -->

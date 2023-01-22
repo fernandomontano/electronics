@@ -36,14 +36,13 @@ class BrandsController extends Controller
     public function store(Request $request)
     {
         //
-
         $brand = new Brands;
 
         $brand->brand = $request->input('brand');
 
         $brand->save();
 
-        return redirect()->route('index')
+        return redirect()->route('create')
             ->with('success', 'New Category Added!');
     }
 
