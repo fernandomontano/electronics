@@ -65,7 +65,7 @@
         <!-- Add CSRF Token -->
         @csrf
         <div class="bg-base-content/10 rounded-xl p-4">
-            <div class="rounded-xl gap-3 px-2 text-primary flex flex-col justify-center items-center">
+            <div class="rounded-xl gap-2 px-2 text-primary flex flex-col justify-center items-center">
                 <label class="">Product Name</label>
                 <input type="text" placeholder="Product Name" name="name"
                     class="bg-neutral text-white p-2 rounded placeholder-white w-full" required />

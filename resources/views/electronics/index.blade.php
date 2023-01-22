@@ -41,7 +41,9 @@
                         </div>
                     </div>
                     <form action="{{ route('categories.destroy', $electronic->id) }}" method="POST"
-                        class="grid grid-cols-2 text-white text-center gap-4 mx-5 mb-5 font-bold">
+                        class="grid grid-cols-3 text-white text-center gap-4 mx-5 mb-5 font-bold">
+                        <a href="{{ route('edit', $electronic->id) }}" class="btn btn-info rounded p-2">show</a>
+                        <a href="{{ route('edit', $electronic->id) }}" class="btn btn-primary rounded p-2">edit</a>
                         @csrf
                         @method('delete')
                         <button class="btn btn-danger rounded p-2" type="submit">del</button>

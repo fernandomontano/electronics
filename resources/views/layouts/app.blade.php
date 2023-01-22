@@ -23,6 +23,7 @@
             <a href="{{ route('index') }}" class="text-xl font-bold underline">Home</a>
             <a href="{{ route('brands.index') }}" class="text-xl font-bold underline">Offers</a>
             <a href="{{ route('create') }}" class="btn-primary p-3 rounded">Add New</a>
+            <a href="{{ route('edit', 1) }}" class="btn-primary p-3 rounded">Edit</a>
         </nav>
     </header>
     <main>

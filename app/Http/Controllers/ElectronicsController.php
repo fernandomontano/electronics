@@ -83,25 +83,24 @@ class ElectronicsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\electronics  $electronics
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        //
-        $electronic = Electronics::find($id);
+        $electronic =  Electronics::find($id);
 
-        return view('electronics.index', compact('electronic'));
+        return view('electronics.edit', compact('electronic'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\electronics  $electronics
+     * @param  \App\Models\Electronics  $Electronics
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, electronics $electronics)
+    public function update(Request $request, Electronics $electronics)
     {
         //
         $electronics->update($request->all());
