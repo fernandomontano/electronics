@@ -62,9 +62,9 @@ class CategoriesController extends Controller
     public function show($id)
     {
         //
-        $electronics = Electronics::find($id);
+        $electronics = Electronics::where('category_id', '=', $id)->get();
 
-        return view('brands.show', compact('electronics'));
+        return view('categories.show', compact('electronics'));
     }
 
     /**

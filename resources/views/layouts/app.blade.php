@@ -7,6 +7,12 @@
     <link href="https://cdn.jsdelivr.net/npm/daisyui@2.47.0/dist/full.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>@yield('title') - Montano</title>
+    <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
+<style>
+body {
+    font-family: 'Inter';;
+}
+</style>
 </head>
 <body class="px-10 md:px-20">
     <header>

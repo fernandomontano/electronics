@@ -4,19 +4,17 @@
 
 @section('content')
 
-<form action="" class="flex flex-col items-center justify-center">
-    <label for="category" class="font-bold text-xl">Select a Category</label>
-    <p class="text-sm">(to create another category, click on add new)</p>
-    <div>
-        <select name="category" id="" class="p-3 rounded mt-2 w-32">
-            <option value="" selected disabled></option>
-            @foreach ($categories as $category)
-                <option value="{{$category->id}}" class="p-3 text-md w-6 font-bold">{{ $category->category }}</option>
-            @endforeach
-        </select>
-        <button class="btn btn-primary">Search</button>
+<div class="gap-5 flex items-center">
+    <div class="flex gap-5 text-lg uppercase">
+        @foreach ($categories as $category)
+        <div class="bg-primary font-bold rounded my-2">
+            <a href="{{ route('categories.show', $category->id) }}" class="p-3">
+                {{ $category->category }}
+            </a>
+        </div>
+        @endforeach
     </div>
-</form>
+</div>
 
 @foreach ($electronics as $electronic)
 <div class="grid-cols-6">
