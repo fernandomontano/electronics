@@ -18,17 +18,17 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('description');
-            $table->double('price',8,2);
+            $table->double('price', 8, 2);
             $table->integer('stock');
             $table->string('file_path');
             $table->unsignedBigInteger('brand_id');
             $table->unsignedBigInteger('category_id');
+            $table->boolean('has_offers'); // default offer: 10% off. (for practical tems.)
 
             $table->foreign('brand_id')->references('id')->on('brands')->onDelete('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
 
             $table->timestamps();
-
         });
     }
 

@@ -1,25 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', 'offers')
 
 @section('content')
 
-<div class="gap-5 flex items-center">
-    <div class="flex gap-5 text-lg uppercase">
-        @foreach ($categories as $category)
-        <div class="bg-primary rounded my-2">
-            <a href="{{ route('categories.show', $category->id) }}" class="p-3">
-                {{ $category->category }}
-            </a>
-        </div>
-        @endforeach
-    </div>
-</div>
-
-
-<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 my-3 gap-3">
+<div class="text-danger font-bold text-xl">This section shows current offers!</div>
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 my-3 gap-3 bg-grey">
     @foreach ($electronics as $electronic)
-    @if (!$electronic->has_offers)
+    @if ($electronic->has_offers)
 
     <div class="bg-black/10 rounded drop-shadow-2xl">
         <div class="p-5">
@@ -36,7 +24,7 @@
             </div>
             <div class="flex justify-between items-center mt-2">
                 <div class="text-sm border border-dashed rounded p-1">Only <span class="font-bold text-primary">{{ $electronic->stock}} </span>in stock!</div>
-                <div class="text-warning font-bold">${{ $electronic->price }}</div>
+                <div class="text-warning font-bold">${{ $electronic->price * 0.9 }}</div>
             </div>
         </div>
         <form action="{{ route('categories.destroy', $electronic->id )}}" method="POST"
@@ -50,11 +38,5 @@
     @endif
     @endforeach
 </div>
-
-<script>
-    if ( window.history.replaceState ) {
-        window.history.replaceState( null, null, window.location.href );
-    }
-</script>
 
 @endsection

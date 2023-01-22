@@ -9,8 +9,9 @@ class Electronics extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['name',
-    'description', 'price', 'stock',
-    'file_path', 'brand_id', 'category_id'];
-    
+    protected $fillable = [
+        'name',
+        'description', 'price', 'stock',
+        'file_path', 'brand_id', 'category_id', 'has_offers'
+    ];
 }

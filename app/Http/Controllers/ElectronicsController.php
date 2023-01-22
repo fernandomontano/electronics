@@ -55,6 +55,7 @@ class ElectronicsController extends Controller
             "description" => $request->get('description'),
             "price" => $request->get('price'),
             "stock" => $request->get('stock'),
+            "has_offers" => $request->get('offers'),
             "file_path" => $request->file->hashName(),
             "category_id" => $request->get('category'),
             "brand_id" => $request->get('brand'),
@@ -111,6 +112,6 @@ class ElectronicsController extends Controller
     public function destroy($id)
     {
         //
-        
+
     }
 }

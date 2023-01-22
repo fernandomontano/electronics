@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Brands;
+use App\Models\Categories;
+use App\Models\Electronics;
 use Illuminate\Http\Request;
 
 class BrandsController extends Controller
@@ -15,6 +17,10 @@ class BrandsController extends Controller
     public function index()
     {
         //
+        $electronics = Electronics::all();
+        $categories = Categories::all();
+
+        return view('brands.offers', compact('electronics'), compact('categories'));
     }
 
     /**
@@ -55,6 +61,7 @@ class BrandsController extends Controller
     public function show(Brands $brands)
     {
         //
+
     }
 
     /**
