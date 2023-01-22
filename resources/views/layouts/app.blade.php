@@ -10,9 +10,9 @@
 </head>
 <body class="px-10 md:px-20">
     <header>
-        <nav class="flex justify-between p-2 text-md items-center navbar border-b-2 ">
+        <nav class="flex justify-between p-2 text-md items-center navbar border-b-2">
             <a href="{{ route('index') }}" class="text-xl font-bold underline">Home</a>
-            <a href="" class="btn-primary p-3 rounded" >Create</a>
+            <a href="{{ route('create') }}" class="btn-primary p-3 rounded">Add New</a>
         </nav>
     </header>
     <main>

@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\categories;
+use App\Models\Categories;
+use App\Models\Brands;
 use App\Models\Electronics;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class ElectronicsController extends Controller
         $electronics = Electronics::all();
         $categories = categories::all();
 
-        return view('electronics.index', compact('electronics'), compact('categories')) ;
+        return view('electronics.index', compact('electronics'), compact('categories'));
     }
 
     /**
@@ -30,6 +31,12 @@ class ElectronicsController extends Controller
     public function create()
     {
         //
+
+        $electronics = new Electronics;
+        $categories = Categories::all();
+        $brands = Brands::all();
+
+        return view('electronics.create', compact('categories'), compact('brands'));
     }
 
     /**
@@ -41,6 +48,24 @@ class ElectronicsController extends Controller
     public function store(Request $request)
     {
         //
+        $request->file->store('electronic', 'public');
+
+        $electronic = new Electronics([
+            "name" => $request->get('name'),
+            "description" => $request->get('description'),
+            "price" => $request->get('price'),
+            "stock" => $request->get('stock'),
+            "file_path" => $request->file->hashName(),
+            "category_id" => $request->get('category'),
+            "brand_id" => $request->get('brand'),
+
+        ]);
+        $electronic->save();
+
+        $electronics = Electronics::all();
+        $categories = categories::all();
+
+        return view('electronics.index', compact('electronics'), compact('categories'));
     }
 
     /**
