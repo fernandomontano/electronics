@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,12 +9,14 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>@yield('title') - Montano</title>
     <link href='https://fonts.googleapis.com/css?family=Inter' rel='stylesheet'>
-<style>
-body {
-    font-family: 'Inter';;
-}
-</style>
+    <style>
+        body {
+            font-family: 'Inter';
+            ;
+        }
+    </style>
 </head>
+
 <body class="px-10 md:px-20">
     <header>
         <nav class="flex justify-between p-2 text-md items-center navbar border-b-2">
@@ -26,4 +29,5 @@ body {
         @yield('content')
     </main>
 </body>
+
 </html>

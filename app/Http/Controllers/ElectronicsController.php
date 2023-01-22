@@ -86,9 +86,12 @@ class ElectronicsController extends Controller
      * @param  \App\Models\electronics  $electronics
      * @return \Illuminate\Http\Response
      */
-    public function edit(electronics $electronics)
+    public function edit($id)
     {
         //
+        $electronic = Electronics::find($id);
+
+        return view('electronics.index', compact('electronic'));
     }
 
     /**
@@ -101,6 +104,10 @@ class ElectronicsController extends Controller
     public function update(Request $request, electronics $electronics)
     {
         //
+        $electronics->update($request->all());
+
+        return redirect()->route('electronics.index')
+            ->with('success', 'Appliance updated successfully');
     }
 
     /**
