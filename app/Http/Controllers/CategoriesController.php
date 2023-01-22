@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Categories;
+use App\Models\Electronics;
 use Illuminate\Http\Request;
 
 class CategoriesController extends Controller
@@ -58,9 +59,12 @@ class CategoriesController extends Controller
      * @param  \App\Models\Categories  $categories
      * @return \Illuminate\Http\Response
      */
-    public function show(Categories $categories)
+    public function show($id)
     {
         //
+        $electronics = Electronics::find($id);
+
+        return view('brands.show', compact('electronics'));
     }
 
     /**
