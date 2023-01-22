@@ -17,7 +17,7 @@
     </div>
 
 
-    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 my-3 gap-3">
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 my-3 gap-3">
         @foreach ($electronics as $electronic)
             @if (!$electronic->has_offers)
                 <div class="bg-black/10 rounded drop-shadow-2xl">
